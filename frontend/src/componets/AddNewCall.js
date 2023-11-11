@@ -42,7 +42,7 @@ const AddNewCall = () => {
             <button onClick={closeNewCallPopup} className="close-button">
               X
             </button>
-            <h2>fuck you</h2>
+            <h2>yo momma is cool!!</h2>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
