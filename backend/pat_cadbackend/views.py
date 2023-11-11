@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from .models import CurrentCall, Civilian, Citation, Arrest, Warrant, Vehicle
-from .serializers import CurrentCallSerializer
+from .serializers import CurrentCallSerializer, CivilianRegistrationSerializer
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
@@ -86,3 +86,11 @@ def login(request):
         return Response({'token': token.key}, status=status.HTTP_200_OK)
     else:
         return Response({'error': 'Invalid Credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+    
+@api_view(['POST'])
+def register_civilian(request):
+    serializer = CivilianRegistrationSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

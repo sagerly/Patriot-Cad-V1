@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from pat_cadbackend import views  # Import views from your app
+from pat_cadbackend.views import register_civilian
+
 
 # Create a router and register our viewset with it.
 router = DefaultRouter()
@@ -32,4 +34,5 @@ urlpatterns = [
     path('create-call/', views.create_call, name='create_call'),
     path('api/register/', views.register, name='register'),  # Corrected import here
     path('api/login/', views.login, name='login'),  # Corrected import here
+    path('register/', register_civilian, name='register_civilian'),
 ]
