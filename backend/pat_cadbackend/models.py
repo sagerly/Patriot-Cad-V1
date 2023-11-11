@@ -49,7 +49,7 @@ class Vehicle(models.Model):
 class CurrentCall(models.Model):
     description = models.CharField(max_length=255)
     time_of_call = models.DateTimeField(default=timezone.now)
-    assigned_officers = models.ManyToManyField(User, related_name='assigned_calls')  # Use User here
+    #assigned_officers = models.ManyToManyField(User, related_name='assigned_calls')  # Use User here
     PRIORITY_CHOICES = [
         (1, 'Low'),
         (2, 'Medium'),

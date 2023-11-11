@@ -6,4 +6,4 @@ from .models import CurrentCall
 class CurrentCallSerializer(serializers.ModelSerializer):
     class Meta:
         model = CurrentCall
-        fields = '__all__'
+        fields = ['id', 'description', 'time_of_call', 'priority']
